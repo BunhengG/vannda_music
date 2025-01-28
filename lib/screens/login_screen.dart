@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 import 'package:vd_music_player/components/neu_box.dart';
 
 import '../auth/auth_service.dart';
-import '../constant/theme_builder.dart';
+import '../themes/theme_builder.dart';
 import '../widget/appBarWidget.dart';
 import '../widget/buttonWidget.dart';
 import '../widget/textFieldWidget.dart';
@@ -76,23 +75,34 @@ class _LoginPageState extends State<LoginPage> {
           horizontal: 16.0,
         ),
         child: SizedBox(
-          height: MediaQuery.of(context).size.height * 0.6,
+          height: MediaQuery.of(context).size.height * 0.5,
           child: NeuBox(
             child: ListView(
+              physics: const NeverScrollableScrollPhysics(),
               padding: const EdgeInsets.symmetric(
                 horizontal: 16,
                 vertical: 8,
               ),
               children: [
-                LottieBuilder.network(
-                  'https://lottie.host/c8d23eef-b488-4c91-919c-54e744887c1f/hO34SOYiSY.json',
-                  width: 120,
-                  height: 90,
-                  fit: BoxFit.contain,
-                  reverse: true,
-                  alignment: Alignment.center,
-                  repeat: true,
+                Container(
+                  padding: const EdgeInsets.all(4.0),
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    shape: BoxShape.circle,
+                  ),
+                  child: CircleAvatar(
+                    radius: 40,
+                    child: ClipOval(
+                      child: Image.asset(
+                        'assets/images/logo.jpg',
+                        fit: BoxFit.cover,
+                        width: 80,
+                        height: 80,
+                      ),
+                    ),
+                  ),
                 ),
+
                 const SizedBox(height: 25),
 
                 // email
@@ -102,6 +112,7 @@ class _LoginPageState extends State<LoginPage> {
                   keyboardType: TextInputType.emailAddress,
                   leadingIcon: const Icon(
                     Icons.email_rounded,
+                    color: Colors.red,
                     size: 22,
                   ),
                 ),
@@ -114,6 +125,7 @@ class _LoginPageState extends State<LoginPage> {
                   obscureText: true,
                   leadingIcon: const Icon(
                     Icons.lock,
+                    color: Colors.red,
                     size: 22,
                   ),
                 ),
@@ -127,19 +139,35 @@ class _LoginPageState extends State<LoginPage> {
                   textColor: titleColor,
                   fontSize: 14.0,
                 ),
-                const SizedBox(height: 12),
+                const SizedBox(height: 16),
                 // go to register page to sign up
                 GestureDetector(
                   onTap: () => Navigator.push(
                     context,
-                    MaterialPageRoute(
+                    SlideMaterialPageRoute(
                       builder: (context) => const RegisterPage(),
                     ),
                   ),
                   child: const Center(
-                    child: Text(
-                      "Dont't have an account? Sign Up",
-                      style: TextStyle(fontSize: 16),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Dont't have an account?",
+                          style: TextStyle(fontSize: 16),
+                        ),
+                        SizedBox(width: 8),
+                        Text(
+                          "Sign Up",
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.redAccent,
+                            fontWeight: FontWeight.bold,
+                            decoration: TextDecoration.underline,
+                            decorationColor: Colors.redAccent,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),

@@ -3,7 +3,7 @@ import 'package:vd_music_player/screens/profile_screen.dart';
 import 'package:vd_music_player/screens/setting_screen.dart';
 
 import '../auth/auth_service.dart';
-import '../constant/theme_builder.dart';
+import '../themes/theme_builder.dart';
 
 class CustomDrawer extends StatefulWidget {
   const CustomDrawer({super.key});
@@ -47,8 +47,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   children: [
                     Container(
                       padding: const EdgeInsets.all(4.0),
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).colorScheme.primary,
+                      decoration: const BoxDecoration(
+                        color: Colors.redAccent,
                         shape: BoxShape.circle,
                       ),
                       child: CircleAvatar(
@@ -63,10 +63,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
                     const SizedBox(height: 10.0),
                     Text(
                       userName.toUpperCase(),
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.w500,
-                        color: Theme.of(context).colorScheme.inversePrimary,
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
                   ],
@@ -80,7 +79,10 @@ class _CustomDrawerState extends State<CustomDrawer> {
             padding: const EdgeInsets.only(left: 25.0, top: 25.0),
             child: ListTile(
               title: const Text("H O M E"),
-              leading: const Icon(Icons.home),
+              leading: const Icon(
+                Icons.home,
+                color: Colors.redAccent,
+              ),
               onTap: () {
                 Navigator.pop(context);
               },
@@ -90,7 +92,10 @@ class _CustomDrawerState extends State<CustomDrawer> {
             padding: const EdgeInsets.only(left: 25.0, top: 25.0),
             child: ListTile(
               title: const Text("S E T T I N G S"),
-              leading: const Icon(Icons.settings),
+              leading: const Icon(
+                Icons.settings,
+                color: Colors.redAccent,
+              ),
               onTap: () {
                 // close pop
                 Navigator.pop(context);

@@ -4,7 +4,7 @@ import 'package:vd_music_player/components/custom_drawer.dart';
 import 'package:vd_music_player/components/neu_box.dart';
 import 'package:vd_music_player/providers/playlist_provider.dart';
 
-import '../constant/theme_builder.dart';
+import '../themes/theme_builder.dart';
 import '../models/song.dart';
 import 'song_screen.dart';
 
@@ -56,42 +56,42 @@ class _HomeScreenState extends State<HomeScreen> {
         elevation: 0,
       ),
       drawer: const CustomDrawer(),
-      body: Padding(
-        padding: const EdgeInsets.only(top: 16.0),
-        child: Consumer<PlaylistProvider>(
-          builder: (context, value, child) {
-            // get playlist
-            final List<Song> playlists = value.playlists;
+      body: Consumer<PlaylistProvider>(
+        builder: (context, value, child) {
+          // get playlist
+          final List<Song> playlists = value.playlists;
 
-            // return list view UI
-            return ListView.builder(
-              itemCount: playlists.length,
-              itemBuilder: (context, index) {
-                // get individual song
-                final Song song = playlists[index];
+          // return list view UI
+          return ListView.builder(
+            padding: const EdgeInsets.only(top: 16),
+            shrinkWrap: true,
+            physics: const BouncingScrollPhysics(),
+            itemCount: playlists.length,
+            itemBuilder: (context, index) {
+              // get individual song
+              final Song song = playlists[index];
 
-                // return list tile UI
-                return Padding(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 12.0,
-                    horizontal: 16,
-                  ),
-                  child: NeuBox(
-                    child: ListTile(
-                      title: Text(song.title),
-                      subtitle: Text(song.artistName),
-                      leading: ClipRRect(
-                        borderRadius: BorderRadius.circular(8),
-                        child: Image.asset(song.albumArtImagePath),
-                      ),
-                      onTap: () => goToSong(index),
+              // return list tile UI
+              return Padding(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 12.0,
+                  horizontal: 16,
+                ),
+                child: NeuBox(
+                  child: ListTile(
+                    title: Text(song.title),
+                    subtitle: Text(song.artistName),
+                    leading: ClipRRect(
+                      borderRadius: BorderRadius.circular(8),
+                      child: Image.asset(song.albumArtImagePath),
                     ),
+                    onTap: () => goToSong(index),
                   ),
-                );
-              },
-            );
-          },
-        ),
+                ),
+              );
+            },
+          );
+        },
       ),
     );
   }

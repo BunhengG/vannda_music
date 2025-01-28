@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:vd_music_player/components/neu_box.dart';
 
 class CustomTextField extends StatelessWidget {
   final String labelText;
@@ -23,20 +22,19 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return NeuBox(
-      child: TextField(
-        decoration: InputDecoration(
-          labelText: labelText,
-          labelStyle: labelStyle,
-          filled: true,
-          fillColor: Theme.of(context).colorScheme.surface,
-          prefixIcon: leadingIcon,
-        ),
-        controller: controller,
-        keyboardType: keyboardType,
-        obscureText: obscureText,
-        style: textStyle ?? const TextStyle(color: Colors.black),
+    return TextField(
+      decoration: InputDecoration(
+        labelText: labelText,
+        labelStyle: labelStyle,
+        filled: true,
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+        fillColor: Theme.of(context).colorScheme.surface,
+        prefixIcon: leadingIcon,
       ),
+      controller: controller,
+      keyboardType: keyboardType,
+      obscureText: obscureText,
+      style: textStyle ?? const TextStyle(color: Colors.black),
     );
   }
 }

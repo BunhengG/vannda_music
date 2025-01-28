@@ -21,13 +21,14 @@ class CustomElevatedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onPressed,
-      child: NeuBox(
+      child: NeuBoxSecond(
         child: Text(
           textAlign: TextAlign.center,
           text.toUpperCase(),
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: fontSize,
+            color: Colors.white,
           ),
         ),
       ),

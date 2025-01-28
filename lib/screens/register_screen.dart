@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
-
 import '../auth/auth_service.dart';
 import '../components/neu_box.dart';
-import '../constant/theme_builder.dart';
+import '../themes/theme_builder.dart';
 import '../widget/appBarWidget.dart';
 import '../widget/buttonWidget.dart';
 import '../widget/textFieldWidget.dart';
@@ -37,7 +35,7 @@ class _RegisterPageState extends State<RegisterPage> {
         // show error message
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-            backgroundColor: Colors.redAccent,
+            backgroundColor: Colors.red,
             content: Text(
               'Please fill in all fields',
               style: TextStyle(color: Colors.white),
@@ -51,7 +49,7 @@ class _RegisterPageState extends State<RegisterPage> {
       if (password != confirmPassword) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-            backgroundColor: Colors.redAccent,
+            backgroundColor: Colors.red,
             content: Text(
               'Passwords do not match',
               style: TextStyle(color: Colors.white),
@@ -87,7 +85,7 @@ class _RegisterPageState extends State<RegisterPage> {
           horizontal: 16.0,
         ),
         child: SizedBox(
-          height: MediaQuery.of(context).size.height * 0.75,
+          height: MediaQuery.of(context).size.height * 0.55,
           child: NeuBox(
             child: ListView(
               padding: const EdgeInsets.symmetric(
@@ -95,14 +93,23 @@ class _RegisterPageState extends State<RegisterPage> {
                 vertical: 8,
               ),
               children: [
-                LottieBuilder.network(
-                  'https://lottie.host/c8d23eef-b488-4c91-919c-54e744887c1f/hO34SOYiSY.json',
-                  width: 160,
-                  height: 90,
-                  fit: BoxFit.contain,
-                  reverse: true,
-                  alignment: Alignment.center,
-                  repeat: true,
+                Container(
+                  padding: const EdgeInsets.all(4.0),
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    shape: BoxShape.circle,
+                  ),
+                  child: CircleAvatar(
+                    radius: 40,
+                    child: ClipOval(
+                      child: Image.asset(
+                        'assets/images/logo.jpg',
+                        fit: BoxFit.cover,
+                        width: 80,
+                        height: 80,
+                      ),
+                    ),
+                  ),
                 ),
                 const SizedBox(height: 25),
 
@@ -113,6 +120,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   keyboardType: TextInputType.emailAddress,
                   leadingIcon: const Icon(
                     Icons.email_rounded,
+                    color: Colors.red,
                     size: 22,
                   ),
                 ),
@@ -126,6 +134,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   obscureText: true,
                   leadingIcon: const Icon(
                     Icons.lock,
+                    color: Colors.red,
                     size: 22,
                   ),
                 ),
@@ -139,31 +148,46 @@ class _RegisterPageState extends State<RegisterPage> {
                   obscureText: true,
                   leadingIcon: const Icon(
                     Icons.lock,
+                    color: Colors.red,
                     size: 22,
                   ),
                 ),
 
-                const SizedBox(height: 16),
+                const SizedBox(height: 25),
                 // button
                 CustomElevatedButton(
                   text: 'Sign Up',
                   onPressed: signUp,
-                  backgroundColor: thirdColor,
-                  textColor: titleColor,
                   fontSize: 14.0,
                 ),
-                const SizedBox(height: 12),
+                const SizedBox(height: 16),
                 GestureDetector(
                   onTap: () => Navigator.push(
                     context,
-                    MaterialPageRoute(
+                    SlideMaterialPageRoute(
                       builder: (context) => const LoginPage(),
                     ),
                   ),
                   child: const Center(
-                    child: Text(
-                      "Already have an account? Sign In",
-                      style: TextStyle(fontSize: 16),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Already have an account?",
+                          style: TextStyle(fontSize: 16),
+                        ),
+                        SizedBox(width: 8),
+                        Text(
+                          'Login',
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.redAccent,
+                            fontWeight: FontWeight.bold,
+                            decoration: TextDecoration.underline,
+                            decorationColor: Colors.redAccent,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),

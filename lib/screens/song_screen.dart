@@ -58,8 +58,12 @@ class SongScreen extends StatelessWidget {
 
                       // menu button
                       IconButton(
-                        onPressed: () {},
-                        icon: const Icon(Icons.menu),
+                        onPressed: () {
+                          // show playlist menu
+                          // value.showPlaylistMenu();
+                          Navigator.pop(context);
+                        },
+                        icon: const Icon(Icons.list),
                       ),
                     ],
                   ),

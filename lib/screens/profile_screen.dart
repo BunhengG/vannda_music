@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../auth/auth_service.dart';
-import '../constant/theme_builder.dart';
+import '../themes/theme_builder.dart';
 import 'login_screen.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -20,7 +20,7 @@ class _ProfilePageState extends State<ProfilePage> {
     if (mounted) {
       Navigator.of(context).popUntil((route) => route.isFirst);
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => const LoginPage()),
+        SlideMaterialPageRoute(builder: (context) => const LoginPage()),
       ); // Directly push LoginPage
     }
   }

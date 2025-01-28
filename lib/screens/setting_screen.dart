@@ -26,27 +26,30 @@ class SettingScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: NeuBox(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              // dark mode
-              Text(
-                "Dark Mode",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18,
-                  color: Theme.of(context).colorScheme.onSurface,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                // dark mode
+                Text(
+                  "Dark Mode",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                    color: Theme.of(context).colorScheme.onSurface,
+                  ),
                 ),
-              ),
-              // switch
-              CupertinoSwitch(
-                value: Provider.of<ThemeProvider>(context, listen: false)
-                    .isDarkMode,
-                onChanged: (value) =>
-                    Provider.of<ThemeProvider>(context, listen: false)
-                        .toggleTheme(),
-              )
-            ],
+                // switch
+                CupertinoSwitch(
+                  value: Provider.of<ThemeProvider>(context, listen: false)
+                      .isDarkMode,
+                  onChanged: (value) =>
+                      Provider.of<ThemeProvider>(context, listen: false)
+                          .toggleTheme(),
+                )
+              ],
+            ),
           ),
         ),
       ),
