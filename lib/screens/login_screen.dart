@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:vd_music_player/components/neu_box.dart';
-
 import '../auth/auth_service.dart';
 import '../themes/theme_builder.dart';
-import '../widget/appBarWidget.dart';
 import '../widget/buttonWidget.dart';
 import '../widget/textFieldWidget.dart';
 import 'register_screen.dart';
@@ -66,17 +63,16 @@ class _LoginPageState extends State<LoginPage> {
   // Build UI
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.surface,
-      appBar: const CustomAppBar(title: 'S I G N  I N'),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(
-          vertical: 25,
-          horizontal: 16.0,
-        ),
-        child: SizedBox(
-          height: MediaQuery.of(context).size.height * 0.5,
-          child: NeuBox(
+    return Container(
+      color: Theme.of(context).colorScheme.surface,
+      child: SafeArea(
+        child: Scaffold(
+          backgroundColor: Theme.of(context).colorScheme.surface,
+          body: Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: 25,
+              horizontal: 16.0,
+            ),
             child: ListView(
               physics: const NeverScrollableScrollPhysics(),
               padding: const EdgeInsets.symmetric(
@@ -84,26 +80,38 @@ class _LoginPageState extends State<LoginPage> {
                 vertical: 8,
               ),
               children: [
-                Container(
-                  padding: const EdgeInsets.all(4.0),
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
-                    shape: BoxShape.circle,
-                  ),
-                  child: CircleAvatar(
-                    radius: 40,
-                    child: ClipOval(
-                      child: Image.asset(
-                        'assets/images/logo.jpg',
-                        fit: BoxFit.cover,
-                        width: 80,
-                        height: 80,
+                Column(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(4.0),
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.circle,
+                      ),
+                      child: CircleAvatar(
+                        radius: 40,
+                        child: ClipOval(
+                          child: Image.asset(
+                            'assets/images/logo.jpg',
+                            fit: BoxFit.cover,
+                            width: 80,
+                            height: 80,
+                          ),
+                        ),
                       ),
                     ),
-                  ),
+                    const SizedBox(height: 16),
+                    const Text(
+                      "S I G N  I N",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),
+                    ),
+                  ],
                 ),
 
-                const SizedBox(height: 25),
+                const SizedBox(height: 16),
 
                 // email
                 CustomTextField(

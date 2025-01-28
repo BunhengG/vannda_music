@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import '../auth/auth_service.dart';
-import '../components/neu_box.dart';
 import '../themes/theme_builder.dart';
-import '../widget/appBarWidget.dart';
 import '../widget/buttonWidget.dart';
 import '../widget/textFieldWidget.dart';
 import 'login_screen.dart';
@@ -76,40 +74,51 @@ class _RegisterPageState extends State<RegisterPage> {
       }
     }
 
-    return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.surface,
-      appBar: const CustomAppBar(title: 'S I G N U P'),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(
-          vertical: 25,
-          horizontal: 16.0,
-        ),
-        child: SizedBox(
-          height: MediaQuery.of(context).size.height * 0.55,
-          child: NeuBox(
+    return Container(
+      color: Theme.of(context).colorScheme.surface,
+      child: SafeArea(
+        child: Scaffold(
+          backgroundColor: Theme.of(context).colorScheme.surface,
+          body: Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: 25,
+              horizontal: 16.0,
+            ),
             child: ListView(
               padding: const EdgeInsets.symmetric(
                 horizontal: 16,
                 vertical: 8,
               ),
               children: [
-                Container(
-                  padding: const EdgeInsets.all(4.0),
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
-                    shape: BoxShape.circle,
-                  ),
-                  child: CircleAvatar(
-                    radius: 40,
-                    child: ClipOval(
-                      child: Image.asset(
-                        'assets/images/logo.jpg',
-                        fit: BoxFit.cover,
-                        width: 80,
-                        height: 80,
+                Column(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(4.0),
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.circle,
+                      ),
+                      child: CircleAvatar(
+                        radius: 40,
+                        child: ClipOval(
+                          child: Image.asset(
+                            'assets/images/logo.jpg',
+                            fit: BoxFit.cover,
+                            width: 80,
+                            height: 80,
+                          ),
+                        ),
                       ),
                     ),
-                  ),
+                    const SizedBox(height: 16),
+                    const Text(
+                      "S I G N U P",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),
+                    ),
+                  ],
                 ),
                 const SizedBox(height: 25),
 
@@ -178,7 +187,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                         SizedBox(width: 8),
                         Text(
-                          'Login',
+                          'Sign In',
                           style: TextStyle(
                             fontSize: 16,
                             color: Colors.redAccent,
