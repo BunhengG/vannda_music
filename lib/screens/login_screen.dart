@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../auth/auth_service.dart';
 import '../themes/theme_builder.dart';
-import '../widget/buttonWidget.dart';
-import '../widget/textFieldWidget.dart';
+import '../components/custom_button.dart';
+import '../components/custom_textfield.dart';
 import 'register_screen.dart';
 
 class LoginPage extends StatefulWidget {
