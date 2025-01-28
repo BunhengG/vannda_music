@@ -40,7 +40,7 @@ final List<Song> playlistsDummy = [
   // Song 5
   Song(
     title: "KHMER GENTLEMEN",
-    artistName: "VANTHAN FT VANNDA",
+    artistName: "VANTHAN ft VANNDA",
     albumName: "",
     albumArtImagePath: "assets/images/s5.png",
     audioPath: "audio/Khmer_Gentlemen.mp3",
@@ -49,7 +49,7 @@ final List<Song> playlistsDummy = [
   // Song 6
   Song(
     title: "POINT OF NO RETURN",
-    artistName: "VANTHAN FT VANNDA",
+    artistName: "VANTHAN ft VANNDA",
     albumName: "",
     albumArtImagePath: "assets/images/s6.png",
     audioPath: "audio/Point_of_No_Return.mp3",
@@ -67,7 +67,7 @@ final List<Song> playlistsDummy = [
   // Song 8
   Song(
     title: "1NA",
-    artistName: "NORITH FT YUUHAI",
+    artistName: "NORITH ft YUUHAI",
     albumName: "",
     albumArtImagePath: "assets/images/s8.png",
     audioPath: "audio/1NA.mp3",
@@ -76,7 +76,7 @@ final List<Song> playlistsDummy = [
   // Song 9
   Song(
     title: "KRA MOAM SROK NA",
-    artistName: "NORITH",
+    artistName: "NORITH ft VANNDA",
     albumName: "",
     albumArtImagePath: "assets/images/s9.png",
     audioPath: "audio/NORITH_ft_VANNDA.mp3",

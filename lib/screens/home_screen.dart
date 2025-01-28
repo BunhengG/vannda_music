@@ -79,8 +79,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 child: NeuBox(
                   child: ListTile(
-                    title: Text(song.title),
-                    subtitle: Text(song.artistName),
+                    title: Text(song.title.toUpperCase()),
+                    subtitle: Text(
+                      song.artistName,
+                      style: const TextStyle(fontSize: 12),
+                    ),
                     leading: ClipRRect(
                       borderRadius: BorderRadius.circular(8),
                       child: Image.asset(song.albumArtImagePath),
