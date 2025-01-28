@@ -40,7 +40,7 @@ class SongScreen extends StatelessWidget {
                       // back button
                       IconButton(
                         onPressed: () {
-                          value.pauseOrResume();
+                          // value.pauseOrResume();
                           Navigator.pop(context);
                         },
                         icon: const Icon(Icons.arrow_back),
@@ -51,7 +51,7 @@ class SongScreen extends StatelessWidget {
                         'P L A Y L I S T',
                         style: TextStyle(
                           fontSize: 20,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w500,
                           color: Theme.of(context).colorScheme.onSurface,
                         ),
                       ),
@@ -171,7 +171,7 @@ class SongScreen extends StatelessWidget {
 
                   const SizedBox(height: 10),
 
-                  // playback controls
+                  // NOTE: playback controls
                   Row(
                     children: [
                       // skip button

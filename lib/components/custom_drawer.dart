@@ -1,11 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:vd_music_player/screens/profile_screen.dart';
 import 'package:vd_music_player/screens/setting_screen.dart';
 
-class CustomDrawer extends StatelessWidget {
+import '../auth/auth_service.dart';
+import '../constant/theme_builder.dart';
+
+class CustomDrawer extends StatefulWidget {
   const CustomDrawer({super.key});
 
   @override
+  State<CustomDrawer> createState() => _CustomDrawerState();
+}
+
+class _CustomDrawerState extends State<CustomDrawer> {
+  // get auth service
+  final authService = AuthService();
+
+  @override
   Widget build(BuildContext context) {
+    // get user email
+    final userEmail = authService.getUserEmail();
+
+    String userName = userEmail!.split('@').first;
+
     return Drawer(
       backgroundColor: Theme.of(context).colorScheme.surface,
       child: Column(
@@ -13,10 +30,47 @@ class CustomDrawer extends StatelessWidget {
           // header
           DrawerHeader(
             child: Center(
-              child: Icon(
-                Icons.music_note,
-                size: 40,
-                color: Theme.of(context).colorScheme.inversePrimary,
+              child: GestureDetector(
+                onTap: () {
+                  // close pop
+                  Navigator.pop(context);
+
+                  // open profile page
+                  Navigator.push(
+                    context,
+                    SlideMaterialPageRoute(
+                      builder: (context) => const ProfilePage(),
+                    ),
+                  );
+                },
+                child: Column(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(4.0),
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).colorScheme.primary,
+                        shape: BoxShape.circle,
+                      ),
+                      child: CircleAvatar(
+                        radius: 40,
+                        backgroundImage: const NetworkImage(
+                          'https://avatar.iran.liara.run/public/48',
+                        ),
+                        backgroundColor:
+                            Theme.of(context).colorScheme.inversePrimary,
+                      ),
+                    ),
+                    const SizedBox(height: 10.0),
+                    Text(
+                      userName.toUpperCase(),
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.w500,
+                        color: Theme.of(context).colorScheme.inversePrimary,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -44,8 +98,9 @@ class CustomDrawer extends StatelessWidget {
                 // open settings page
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) => const SettingScreen()),
+                  SlideMaterialPageRoute(
+                    builder: (context) => const SettingScreen(),
+                  ),
                 );
               },
             ),

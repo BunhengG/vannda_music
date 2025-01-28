@@ -4,6 +4,7 @@ import 'package:vd_music_player/components/custom_drawer.dart';
 import 'package:vd_music_player/components/neu_box.dart';
 import 'package:vd_music_player/providers/playlist_provider.dart';
 
+import '../constant/theme_builder.dart';
 import '../models/song.dart';
 import 'song_screen.dart';
 
@@ -32,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
     // go to the song screen
     Navigator.push(
       context,
-      MaterialPageRoute(
+      SlideMaterialPageRoute(
         builder: (context) => const SongScreen(),
       ),
     );
@@ -45,8 +46,12 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          'V D ~ M u s i c'.toUpperCase(),
-          style: const TextStyle(fontWeight: FontWeight.w600),
+          'B A R A M E Y',
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w500,
+            color: Theme.of(context).colorScheme.onSurface,
+          ),
         ),
         elevation: 0,
       ),

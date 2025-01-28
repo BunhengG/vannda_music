@@ -14,7 +14,14 @@ class SettingScreen extends StatelessWidget {
       backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('S E T T I N G S'),
+        title: Text(
+          'S E T T I N G S',
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w500,
+            color: Theme.of(context).colorScheme.onSurface,
+          ),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
