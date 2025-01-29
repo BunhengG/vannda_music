@@ -84,8 +84,8 @@ class _ProfilePageState extends State<ProfilePage> {
             children: [
               Container(
                 padding: const EdgeInsets.all(4.0),
-                decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.primary,
+                decoration: const BoxDecoration(
+                  color: Colors.redAccent,
                   shape: BoxShape.circle,
                 ),
                 child: CircleAvatar(
