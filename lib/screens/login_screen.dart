@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import '../auth/auth_service.dart';
 import '../themes/theme_builder.dart';
 import '../components/custom_button.dart';
 import '../components/custom_textfield.dart';
+import 'home_screen.dart';
 import 'register_screen.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<LoginScreen> createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginPageState extends State<LoginScreen> {
   // get auth service
   final authService = AuthService();
 
@@ -20,9 +22,8 @@ class _LoginPageState extends State<LoginPage> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
-  // login button pressed
+  // login
   void login() async {
-    // prepare data
     final email = _emailController.text;
     final password = _passwordController.text;
 
@@ -42,7 +43,22 @@ class _LoginPageState extends State<LoginPage> {
 
     // attempt login
     try {
-      await authService.signInWithEmailPassword(email, password);
+      final response =
+          await authService.signInWithEmailPassword(email, password);
+      print('Response: ${response}');
+
+      // Check if login was successful
+      final session = Supabase.instance.client.auth.currentSession;
+      if (session != null) {
+        // Navigate to HomeScreen
+        if (mounted) {
+          Navigator.of(context).pushReplacement(
+            SlideMaterialPageRoute(builder: (context) => const HomeScreen()),
+          );
+        }
+      } else {
+        throw Exception('Failed to retrieve session after login.');
+      }
     } catch (e) {
       if (mounted) {
         // show error message
@@ -50,7 +66,6 @@ class _LoginPageState extends State<LoginPage> {
           SnackBar(
             backgroundColor: Colors.redAccent,
             content: Text(
-              // 'Error $e',
               'Oops! Something went wrong. Please try again.',
               style: TextStyle(color: Theme.of(context).colorScheme.surface),
             ),
@@ -83,9 +98,9 @@ class _LoginPageState extends State<LoginPage> {
                 Column(
                   children: [
                     Container(
-                      padding: const EdgeInsets.all(4.0),
+                      padding: const EdgeInsets.all(3.0),
                       decoration: const BoxDecoration(
-                        color: Colors.white,
+                        color: Colors.redAccent,
                         shape: BoxShape.circle,
                       ),
                       child: CircleAvatar(

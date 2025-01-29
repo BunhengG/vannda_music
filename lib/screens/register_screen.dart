@@ -93,9 +93,9 @@ class _RegisterPageState extends State<RegisterPage> {
                 Column(
                   children: [
                     Container(
-                      padding: const EdgeInsets.all(4.0),
+                      padding: const EdgeInsets.all(3.0),
                       decoration: const BoxDecoration(
-                        color: Colors.white,
+                        color: Colors.redAccent,
                         shape: BoxShape.circle,
                       ),
                       child: CircleAvatar(
@@ -174,7 +174,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   onTap: () => Navigator.push(
                     context,
                     SlideMaterialPageRoute(
-                      builder: (context) => const LoginPage(),
+                      builder: (context) => const LoginScreen(),
                     ),
                   ),
                   child: const Center(

@@ -3,8 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:vd_music_player/providers/theme_provider.dart';
 
-import 'auth/auth_gate.dart';
 import 'providers/playlist_provider.dart';
+import 'screens/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: themeProvider.themeData,
-      home: const AuthGate(),
+      home: const SplashScreen(),
     );
   }
 }

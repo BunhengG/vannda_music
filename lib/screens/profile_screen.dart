@@ -21,7 +21,7 @@ class _ProfilePageState extends State<ProfilePage> {
     if (mounted) {
       Navigator.of(context).popUntil((route) => route.isFirst);
       Navigator.of(context).pushReplacement(
-        SlideMaterialPageRoute(builder: (context) => const LoginPage()),
+        SlideMaterialPageRoute(builder: (context) => const LoginScreen()),
       ); // Directly push LoginPage
     }
   }
