@@ -46,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          'B A R A M E Y',
+          'P L A Y L I S T S',
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.w500,
@@ -79,6 +79,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 child: NeuBox(
                   child: ListTile(
+                    contentPadding: const EdgeInsets.symmetric(
+                      horizontal: 8,
+                      vertical: 0,
+                    ),
                     title: Text(song.title.toUpperCase()),
                     subtitle: Text(
                       song.artistName,

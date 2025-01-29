@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../auth/auth_service.dart';
@@ -90,10 +91,17 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 child: CircleAvatar(
                   radius: 40,
-                  backgroundImage: const NetworkImage(
-                    'https://avatar.iran.liara.run/public/48',
-                  ),
                   backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+                  child: ClipOval(
+                    child: CachedNetworkImage(
+                      imageUrl: 'https://avatar.iran.liara.run/public/48',
+                      fit: BoxFit.cover,
+                      placeholder: (context, url) =>
+                          const CircularProgressIndicator(),
+                      errorWidget: (context, url, error) =>
+                          const Icon(Icons.error),
+                    ),
+                  ),
                 ),
               ),
               const SizedBox(height: 25),
