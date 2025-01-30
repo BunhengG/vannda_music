@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../screens/login_screen.dart';
 import '../../themes/theme_builder.dart';
 
 class Intro3 extends StatelessWidget {
@@ -24,7 +25,7 @@ class Intro3 extends StatelessWidget {
                 padding: EdgeInsets.all(16.0),
                 child: Text(
                   textAlign: TextAlign.center,
-                  'I am honor to be on TEDxAbdulCarimeSt and talk about "How music revolution changes Cambodia narrative".',
+                  'TEDxAbdulCarimeSt Cambodia Team',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 14,
@@ -32,6 +33,27 @@ class Intro3 extends StatelessWidget {
                   ),
                 ),
               ),
+              const SizedBox(height: 25),
+              ElevatedButton(
+                onPressed: () {
+                  Future.delayed(const Duration(milliseconds: 500), () {
+                    Navigator.push(
+                      context,
+                      SlideMaterialPageRoute(
+                        builder: (context) => const LoginScreen(),
+                      ),
+                    );
+                  });
+                },
+                child: const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Icon(
+                    Icons.arrow_forward_ios_rounded,
+                    color: Colors.redAccent,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 25),
             ],
           ),
         ),
@@ -53,6 +75,7 @@ class CustomText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
+      textAlign: TextAlign.center,
       text.toUpperCase(),
       style: TextStyle(
         color: Colors.white,

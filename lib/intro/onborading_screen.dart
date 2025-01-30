@@ -74,7 +74,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           );
                         },
                         child: Text(
-                          'Done'.toUpperCase(),
+                          ''.toUpperCase(),
                           style: const TextStyle(
                             color: Colors.white,
                             fontSize: 16,

@@ -21,9 +21,9 @@ class Intro2 extends StatelessWidget {
                   const SizedBox(width: 30),
                   ClipRRect(
                     borderRadius: BorderRadius.circular(12),
-                    child: Image.asset('assets/images/ceo.jpg', height: 300),
+                    child: Image.asset('assets/images/ceo.jpg', height: 320),
                   ),
-                  const SizedBox(width: 75),
+                  const SizedBox(width: 35),
                   const Column(
                     children: [
                       CustomText(text: 'l'),
@@ -38,15 +38,23 @@ class Intro2 extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 45),
+              const SizedBox(height: 26),
               const Padding(
                 padding: EdgeInsets.only(left: 26.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     CustomText(
-                      text: 'T E D x A b d u l C a r i m e S t',
+                      text: 'O u r C E O ',
                       fontSize: 22,
+                    ),
+                    Text(
+                      ' of TEDxAbdulCarimeSt',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
                   ],
                 ),
@@ -56,7 +64,7 @@ class Intro2 extends StatelessWidget {
                 padding: EdgeInsets.all(16.0),
                 child: Text(
                   textAlign: TextAlign.start,
-                  'I am honor to be on TEDxAbdulCarimeSt and talk about "How music revolution changes Cambodia narrative". Thank for allowing me...',
+                  'I am honor to be on TEDxAbdulCarimeSt and talk about "How music revolution changes Cambodia narrative". Thank for allowing me this opportunity to share...',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 14,
